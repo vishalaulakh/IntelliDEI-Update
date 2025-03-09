@@ -4,12 +4,7 @@
 
 ## 📝 TO-DO
 
-### 👨‍💻 **Kaushik**
-- [x] [Setup React-Vite Project](https://github.com/Peterborough-DEI-Project/IDEA-Toolkit/issues/1)
-
-### 👨‍💻 **Carlos**
-- [x] [Setup Supabase](https://github.com/Peterborough-DEI-Project/IDEA-Toolkit/issues/2)
-
+- Start testing the Basic Functionalities (Selenium/React Tools)
 ---
 
 ## ⚛️ React + Vite
