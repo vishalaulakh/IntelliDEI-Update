@@ -12,10 +12,9 @@ driver.maximize_window()
 def smooth_scroll_to(driver, target_position, duration=2):
     current_position = driver.execute_script("return window.pageYOffset;")
     distance = target_position - current_position
-    steps = 50  # Breaking it into 50 little steps for smoothness
-    step_delay = duration / steps  # How long each step takes
-    step_size = distance / steps  # How far we move each time
-
+    steps = 50  
+    step_delay = duration / steps  
+    step_size = distance / steps  
     for _ in range(steps):
         current_position += step_size
         driver.execute_script(f"window.scrollTo(0, {current_position});")
@@ -25,13 +24,13 @@ try:
     # Alright, let's hit the homepage first
     driver.get("https://idea-toolkit.vercel.app/")
     print("Hey, we just landed on the homepage! Title is:", driver.title)
-    time.sleep(3)  # Chill for a sec to see it
+    time.sleep(3)  
 
     # Time to scroll down and up like a curious visitor
     page_height = driver.execute_script("return document.body.scrollHeight;")
     smooth_scroll_to(driver, page_height, duration=2)
     print("Smoothly scrolled all the way down the homepage")
-    time.sleep(3)  # Hang out at the bottom
+    time.sleep(3)  
 
     smooth_scroll_to(driver, 0, duration=2)
     print("And now we’re back at the top of the homepage")
@@ -53,11 +52,6 @@ try:
 
         smooth_scroll_to(driver, 0, duration=2)
         print(f"Scrolled back up on {page}, all good")
-        time.sleep(3)
-
-        # Back to home for the next adventure
-        driver.get("https://idea-toolkit.vercel.app/")
-        print("Jumped back to the homepage to keep exploring")
         time.sleep(3)
 
     # Now let’s log in and do some real stuff
