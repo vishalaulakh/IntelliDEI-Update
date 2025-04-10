@@ -26,8 +26,9 @@ class TestIdeaToolkitResponsive(unittest.TestCase):
                 continue
             try:
                 element = self.wait.until(EC.presence_of_element_located(locator))
-                driver.execute_script("arguments[0].scrollIntoView(true);", element)
-                time.sleep(0.5)
+                # Smooth scrolling with animation
+                driver.execute_script("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", element)
+                time.sleep(0.5)  # Wait for smooth scroll animation to complete
                 is_visible = element.is_displayed()
                 print(f"{device} - {name}: {is_visible}")
                 if not is_visible:
@@ -107,7 +108,7 @@ class TestIdeaToolkitResponsive(unittest.TestCase):
             "Diversity Section": (By.XPATH, "//h3[contains(., 'Diversity')]"),
             "Equity Section": (By.XPATH, "//h3[contains(., 'Equity')]"),
             "Accessibility Section": (By.XPATH, "//h3[contains(., 'Accessibility')]"),
-            "inclusion Framework": (By.XPATH, "//h3[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'inclusion framework')]"),  # Case-insensitive
+            "inclusion Framework": (By.XPATH, "//h3[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'inclusion framework')]"),
             "Assessment Tools Framework": (By.XPATH, "//h3[contains(., 'Assessment Tools')]"),
             "Staff Support Framework": (By.XPATH, "//h3[contains(., 'Staff Support')]"),
             "CTA Button": (By.XPATH, "//button[contains(., 'Get Started with IDEA')]")
